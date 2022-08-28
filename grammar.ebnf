@@ -2,7 +2,7 @@ Expression = Term , { ( '+' | '-' ) , Term } ;
 
 Term  = Factor , { ( '*' | '/' ) , Factor } ;
 
-Factor = [ '+' | '-' ] , Number | '(', Expression, ')' ;
+Factor = [ '+' | '-' ] , ( Number | '(', Expression, ')' );
 
 Number = { DIGIT }- , [ '.' , { DIGIT }- ] ;
 
