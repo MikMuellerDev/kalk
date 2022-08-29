@@ -1,9 +1,11 @@
 use std::str::Chars;
 
+const SINGLE_CHARS: [char; 6] = ['+', '-', '*', '/', '(', ')'];
+const DIGITS: [char; 10] = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+const IGNORE: [char; 3] = [' ', '\t', '\r'];
+
 #[derive(Debug, Clone, PartialEq)]
 pub enum Token {
-    Number(String),
-
     Plus,
     Minus,
     Mul,
@@ -12,26 +14,22 @@ pub enum Token {
     LParen,
     RParen,
 
+    Number(String),
     EOF,
 }
-
-const SINGLE_CHARS: [char; 6] = ['+', '-', '*', '/', '(', ')'];
-const DIGITS: [char; 10] = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-const IGNORE: [char; 3] = [' ', '\t', '\r'];
 
 pub struct Lexer<'lexer> {
     current_char: Option<char>,
     current_char_index: u64,
-
     program: Chars<'lexer>,
 }
 
 impl<'lexer> Lexer<'lexer> {
     pub fn new(program: &'lexer str) -> Self {
         Self {
-            program: program.chars(),
             current_char: None,
             current_char_index: 0,
+            program: program.chars(),
         }
     }
 
