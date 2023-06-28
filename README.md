@@ -3,7 +3,7 @@ A calculator language written in Rust
 
 ## Why?
 - To practice writing an interpreted programming language
-- Because I need an ~~advanced~~ calculator for math class when doing small but significant calculations
+- Because I need an ~~advanced~~ calculator for math class when doing small calculations
 
 ## Installation
 ```bash
